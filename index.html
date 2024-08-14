@@ -3,283 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>软件下载界面</title>
+    <title>专业司机培训学校</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #f7f7f7;
+            display: flex;
         }
-        .container {
-            max-width: 1200px;
-            margin: auto;
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            height: 100vh;
+            color: white;
+            padding: 20px;
+            transition: width 0.3s;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        .sidebar a:hover {
+            background-color: #555;
+        }
+        .sidebar .submenu {
+            display: none;
+            padding-left: 20px;
+        }
+        .sidebar .submenu a {
+            padding: 5px;
+        }
+        .main-content {
+            flex-grow: 1;
             padding: 20px;
         }
-        .software-item {
-            background: #fff;
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+        .card {
+            background-color: #fff;
             border: 1px solid #ddd;
-            margin-bottom: 20px;
+            border-radius: 10px;
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
         }
-        .software-image {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-bottom: 20px;
+        .card:hover {
+            transform: translateY(-5px);
         }
-        .software-title {
-            font-size: 24px;
+        .card-category {
+            text-transform: uppercase;
+            color: #666;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .card-content {
+            font-size: 1em;
             color: #333;
-            margin-bottom: 10px;
         }
-        .software-description {
-            margin-bottom: 20px;
-        }
-        .software-rating {
-            color: gold;
-            margin-bottom: 10px;
-        }
-        .download-button {
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: row; /* 保持侧边栏在左侧 */
+            }
+            .sidebar {
+                width: 90px; /* 保持固定宽度 */
+                height: auto;
+            }
+            .main-content {
+                flex-grow: 1;
+                padding: 20px;
+            }
+            .card-container {
+                grid-template-columns: 1fr; /* 卡片堆叠 */
+            }
+            .download-btn {
             display: inline-block;
+            padding: 5px 10px;
             background-color: #5cb85c;
             color: white;
-            padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s;
+            
         }
-        .download-button:hover {
+        .download-btn:hover {
             background-color: #4cae4c;
         }
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .software-item {
-                padding: 10px;
-            }
-            .software-title {
-                font-size: 20px;
-            }
-            .download-button {
-                padding: 8px 16px;
-            }
-        }
+    }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 软件下载卡片 -->
-        <div class="software-item">
-            <h2 class="software-title">WARP</h2>
-            <p class="software-description">使您的互联网更加私密的免费应用</p>
-
-            <a href="https://share.feijipan.com/s/TZAgLoXu" class="download-button">立即下载</a> 
-                        <a href="https://d174-163.userscloud.net/d/aeltcdwptn2fvxijlosmxv2bbrs3jjuta2nniyxwgzvtm6gy3iycgpyuicwrvn4xfhvy6s6t/%E5%AF%86%E9%92%A5.zip" class="download-button">密钥下载</a> 
+    <div class="sidebar">
+                <h2></h2>
+        <a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu0')">首页</a>
+        <div id="submenu0" class="submenu">
+            <a href="https://abcd136.github.io/b/">跳转</a>
+            </div>
+        <p><a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu1')">通知</a>
+        <div id="submenu1" class="submenu">
+            <a href="https://abcd136.github.io/b1/">公告</a>
         </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">Indonesia</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/lLAgRCiC" class="download-button">立即下载</a> 
+        <p><a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu2')">广播</a>
+        <div id="submenu2" class="submenu">
+            <a href="https://abcd136.github.io/b41/">广播站</a>
         </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">快连</h2>
-            <p class="software-description">用完时间清理数据</p>
-
-            <a href="https://share.feijipan.com/s/L1AhaBD3" class="download-button">立即下载</a> 
+        <p><a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu3')">安卓</a>
+        <div id="submenu3" class="submenu">
+            <a href="#">软件</a>
+            <a href="#">梯子</a>
+            <a href="#">影视</a>
+            <a href="#">小说</a>
+            <a href="#">AI</a>
+            <a href="#">搜图</a>
+            <a href="#">私密</a>
+            <a href="#">网盘</a>
+            <a href="#">手游</a>
+            <a href="#">动漫</a>
+            <a href="#">工具</a>
         </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">毒舌</h2>
-            <p class="software-description">50g流量无限重置版 用完清除数据</p>
-
-            <a href="https://share.feijipan.com/s/8FAhaHJ3" class="download-button">立即下载</a> 
+        <p><a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu4')">电脑</a>
+        <div id="submenu4" class="submenu">
+            <a href="#">软件</a>
+            <a href="#">梯子</a>
+            <a href="#">游戏网站</a>
+            <a href="#">游戏加速</a>
+            <a href="#">游戏</a>
+            <a href="#">系统</a>
         </div>
-            
-        <div class="software-item">
-            <h2 class="software-title">快柠檬</h2>
-            <p class="software-description">到期手动清除数据 重置多了IP会被拉黑</p>
-
-            <a href="https://share.feijipan.com/s/ZZAhaO44" class="download-button">立即下载</a>
+        <p><a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu5')">吃瓜</a>
+        <div id="submenu5" class="submenu">
+            <a href="#">网络</a>
         </div>
-            
-        <div class="software-item">
-            <h2 class="software-title">快马</h2>
-            <p class="software-description">1g流量 用完清除数据</p>
-
-            <a href="https://share.feijipan.com/s/3xAhaXkI" class="download-button">立即下载</a>
+        <p><a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu6')">车牌</a>
+        <div id="submenu6" class="submenu">
+            <a href="#">网络</a>
+            <a href="#">车号</a>
+            <a href="#">里番</a>
         </div>
-            
-        <div class="software-item">
-            <h2 class="software-title">WireGuard</h2>
-            <p class="software-description">开放源代码VPN 程序及协议</p>
-
-            <a href="https://share.feijipan.com/s/1QAhjm1m" class="download-button">立即下载</a>
-            <a href="https://share.feijipan.com/s/4pAhjrhI" class="download-button">10包下载</a>
+        <a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu7')">旧网站</a>
+        <div id="submenu7" class="submenu">
+            <a href="https://abcd136.github.io/abcd/">跳转</a>
         </div>
-        
-            <div class="software-item">
-            <h2 class="software-title">Shadowrocket</h2>
-            <p class="software-description">是一款iOS系统上的代理App</p>
-
-            <a href="https://share.feijipan.com/s/G9AhjI9L" class="download-button">立即下载</a>每6小时后点更新
-        </div>
-        
-            <div class="software-item">
-            <h2 class="software-title">Clash</h2>
-            <p class="software-description">是基于规则的跨平台代理工具</p>
-
-            <a href="https://share.feijipan.com/s/fLAhkDS5" class="download-button">立即下载</a>需要节点才能使用
-        </div>
-        
-            <div class="software-item">
-            <h2 class="software-title">V2Ray</h2>
-            <p class="software-description">是V2Fly社区开发的ProjectV下的一个工具</p>
-
-            <a href="https://share.feijipan.com/s/bRAhkOuX" class="download-button">立即下载</a>需要节点才能使用
-        </div>
-        
-            <div class="software-item">
-            <h2 class="software-title">安易</h2>
-            <p class="software-description">是上网加速软件</p>
-
-            <a href="https://share.feijipan.com/s/uHAhuYoK" class="download-button">立即下载</a>
-        </div>
-        
-                    <div class="software-item">
-            <h2 class="software-title">白鲸</h2>
-            <p class="software-description">共950+服务器，军事级256位加密技术</p>
-
-            <a href="https://share.feijipan.com/s/WbAhu6IW" class="download-button">立即下载</a>
-        </div>
-        
-            <div class="software-item">
-            <h2 class="software-title">安心</h2>
-            <p class="software-description">采用先进的技术</p>
-
-            <a href="https://share.feijipan.com/s/vPAhuj6U" class="download-button">立即下载</a>
-        </div>
-        
-                    <div class="software-item">
-            <h2 class="software-title">黑洞</h2>
-            <p class="software-description">用户无需注册、登录</p>
-
-            <a href="https://share.feijipan.com/s/ibAiQswk" class="download-button">立即下载</a>
-        </div>
-        
-                    <div class="software-item">
-            <h2 class="software-title">橘子</h2>
-            <p class="software-description">无视会员时间到期和vip限制提示</p>
-
-            <a href="https://share.feijipan.com/s/FEAi1FSv" class="download-button">立即下载</a>
-        </div>
-        
-                    <div class="software-item">
-            <h2 class="software-title">Ace</h2>
-            <p class="software-description">1G流量，用完清理数据</p>
-
-            <a href="https://share.feijipan.com/s/8zAi1Hbs" class="download-button">立即下载</a>
-        </div>
-        
-                    <div class="software-item">
-            <h2 class="software-title">Hiddify</h2>
-            <p class="software-description">需要节点才能用</p>
-
-            <a href="https://share.feijipan.com/s/liAiwCBU" class="download-button">立即下载</a>
-        </div>
-        
-            <div class="software-item">
-            <h2 class="software-title">雷霆</h2>
-            <p class="software-description">用户突破地理限制，访问全球的网站</p>
-
-            <a href="https://share.feijipan.com/s/1ZAiyJYL" class="download-button">立即下载</a>
-        </div>
-        
-            <div class="software-item">
-            <h2 class="software-title">起飞</h2>
-            <p class="software-description">是一款免费的VPN应用</p>
-
-            <a href="https://share.feijipan.com/s/5FAizYDp" class="download-button">立即下载</a>
-        </div>
-        
-            <div class="software-item">
-            <h2 class="software-title">火箭</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/GMAjYyyj" class="download-button">立即下载</a>
-        </div>
-            
-            <div class="software-item">
-            <h2 class="software-title">nthLink</h2>
-            <p class="software-description">美国之音vpn资本主义敌对势力的</p>
-
-            <a href="https://share.feijipan.com/s/PEAjq1H7" class="download-button">立即下载</a>
-        </div>
-        
-            <div class="software-item">
-            <h2 class="software-title">Psiphon</h2>
-            <p class="software-description">连接速度非常慢不推荐</p>
-
-            <a href="https://share.feijipan.com/s/gMAjrFVE" class="download-button">立即下载</a>
-            
-        </div>
-        
-            <div class="software-item">
-            <h2 class="software-title">火箭</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/GMAjYyyj" class="download-button">立即下载</a>
-            
-        </div>
-        
-            <div class="software-item">
-            <h2 class="software-title">vpn</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/EhAjuKzd" class="download-button">立即下载</a>
-        </div>
-            
-            <div class="software-item">
-            <h2 class="software-title">银河</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/APAlFeXa" class="download-button">立即下载</a>
-        </div>
-            
-            <div class="software-item">
-            <h2 class="software-title">HTTP Injector</h2>
-            <p class="software-description">代理软件，我还没有玩明白⊙ω⊙</p>
-
-            <a href="https://share.feijipan.com/s/lTAlfFs9" class="download-button">立即下载</a>
-        
-        </div>
-            
-            <div class="software-item">
-            <h2 class="software-title">海鸥</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/CyAoIYV0" class="download-button">立即下载</a>
-            
-        </div>
-
-            <div class="software-item">
-            <h2 class="software-title">Oblivion</h2>
-            <p class="software-description">阿拉伯国家开发，安全可靠</p>
-
-            <a href="https://share.feijipan.com/s/rDAq4hWT" class="download-button">立即下载</a>
-            
-        </div>
-        
-            <div class="software-item">
-            <h2 class="software-title">MahsaNG</h2>
-            <p class="software-description">伊朗开发的</p>
-
-            <a href="https://share.feijipan.com/s/62BU24J5" class="download-button">立即下载</a>
-        
-        <!-- 更多软件卡片可以按照上面的格式添加 -->
     </div>
+    <div class="main-content">
+        <div class="header">
+            <h1></h1>
+        </div>
+
+        <div class="card-container">
+            <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">安心</div>
+        <div class="card-content">
+        <div class="download-section">
+            免费稳定全球云提供服务
+        <p><a href="https://www.axjsq.com/" class="download-btn">官网</a>
+        
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">安易</div>
+        <div class="card-content">
+        <div class="download-section">
+            注册送365天无限流量
+        <p><a href="https://www.anyi8.com/" class="download-btn">官网</a>
+        <a href="https://share.feijipan.com/s/OWCALBNB" class="download-btn">下载</a>
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">白鲸</div>
+        <div class="card-content">
+        <div class="download-section">
+            注册送30天(官网邀请码JVGHL)
+        <p><a href="https://www.bjch999.com/" class="download-btn">官网</a>
+        <a href="https://share.feijipan.com/s/pJCALDc3" class="download-btn">下载</a>
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">起飞</div>
+        <div class="card-content">
+        <div class="download-section">
+            左上角，测试真网络
+        <p><a href="https://share.feijipan.com/s/5FAizYDp" class="download-btn">下载</a>
+        
+</div>
+            </div>
+    </div>
+    <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">快连</div>
+        <div class="card-content">
+        <div class="download-section">
+            下载是无限重置
+            <p>被屏蔽换wf或流量
+        <p><a href="https://letsvpn.world/" class="download-btn">官网</a>
+        <a href="https://share.feijipan.com/s/0ECBBwoF" class="download-btn">下载</a>
+</div>不行就清数据或卸载
+<p>换wf流量或开飞行模式
+            </div>
+    </div>
+    <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">汤姆</div>
+        <div class="card-content">
+        <div class="download-section">
+            简洁大方，无多余按钮
+        <p><a href="https://share.feijipan.com/s/hOCBBgNN" class="download-btn">下载</a>
+        
+</div>
+            </div>
+    </div>
+    <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">毒舌</div>
+        <div class="card-content">
+        <div class="download-section">
+            50g重置版 清数据或卸载
+        <p><a href="https://share.feijipan.com/s/cZCBCHLo" class="download-btn">下载</a>
+        
+</div>
+            </div>
+    </div>
+    <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">Shadowrocket</div>
+        <div class="card-content">
+<div class="download-section">
+            每6小时后点更新
+        <p><a href="https://share.feijipan.com/s/G9AhjI9L" class="download-btn">下载</a>
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">Clash</div>
+        <div class="card-content">
+        <div class="download-section">
+            基于规则的跨平台代理工具
+            <p>需要节点才能使用
+        <p><a href="https://share.feijipan.com/s/fLAhkDS5" class="download-btn">下载</a>
+        
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">V2Ray</div>
+        <div class="card-content">
+        <div class="download-section">
+            V2Fly社区开发的ProjectV下的一个工具
+            <p>需要节点才能使用
+        <p><a href="https://share.feijipan.com/s/bRAhkOuX" class="download-btn">下载</a>
+        
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">Hiddify</div>
+        <div class="card-content">
+        <div class="download-section">
+            支持安卓电脑苹果Linux
+        <p><a href="https://github.com/hiddify/hiddify-next/releases" class="download-btn">官网</a>
+        <a href="https://wwm.lanzn.com/i3jHQ21yb5gf" class="download-btn">节点</a>
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">海鸥</div>
+        <div class="card-content">
+        <div class="download-section">
+            连接速度慢，但上网快
+        <p><a href="https://share.feijipan.com/s/CyAoIYV0" class="download-btn">下载</a>
+        
+</div>
+            </div>
+    </div>
+
+    <script>
+        function toggleMenu(event, submenuId) {
+            event.preventDefault(); // 阻止链接的默认行为
+            var submenu = document.getElementById(submenuId);
+            if (submenu.style.display === 'block') {
+                submenu.style.display = 'none';
+            } else {
+                submenu.style.display = 'block';
+            }
+        }
+        // ... JavaScript代码保持不变 ...
+    </script>
 </body>
 </html>
